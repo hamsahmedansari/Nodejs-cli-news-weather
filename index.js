@@ -4,8 +4,7 @@ const figlet = require("figlet");
 const yargs = require("yargs");
 const command = yargs.argv._;
 
-const { getRegionDetails } = require("./utils/region");
-debugger;
+const { getDetails } = require("./utils");
 clear();
 // Create Title
 console.log(
@@ -14,9 +13,6 @@ console.log(
   )
 );
 console.log(chalk.yellow("\n\tAn Simple CLI for Weather News "));
-
-if (command) {
-  getRegionDetails.then(d => console.log(d)).catch(err => console.log(err));
-}
-
+const city = command && String(command[0]).trim();
+getDetails(city);
 yargs.parse();
