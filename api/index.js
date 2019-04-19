@@ -1,5 +1,5 @@
 const IP_GEOLOCATION_KEY = "49a818d7a92145748f558b2dacb621fb";
-const ACCUWEATHER_KEY = "v5c7Bs4r77uDiBWfT6vUZC0FvuegWapW"; // limited
+const ACCUWEATHER_KEY = "v5c7Bs4r77uDiBWfT6vUZC0FvuegWapW"; //limits
 const NEWS_KEY = "1586aa5799b7438a92e9e269afd96e13";
 module.exports = {
   ipGeolocation:

@@ -9,7 +9,9 @@ const getRegion = city =>
     if (city != "undefined") {
       return resolve({ city });
     }
-    console.log("=> City Not Mention Getting Result of Your Location");
+    console.log(
+      chalk.red("=>") + " City Not Mention Getting Result of Your Location"
+    );
     request(api.ipGeolocation, (err, res, body) => {
       if (err) return reject(err);
       const newRes = JSON.parse(body);
@@ -96,23 +98,30 @@ const getNews = country =>
   });
 
 const getDetails = (param = null) => {
-  debugger;
+  console.log(chalk.red("================= Logs ==================="));
   getRegion(param)
     .then(cityRes => {
       const { city } = cityRes;
-      console.log(`=> Selected City : ${city} `);
-      console.log(`=> Getting Weather of ${city} `);
+      console.log(`${chalk.red("=>")} Selected City : ${city} `);
+      console.log(`${chalk.red("=>")} Getting Weather of ${city} `);
       getWether(city).then(weatherRes => {
-        console.log(`=> Weather of ${city} is loaded`);
-        console.log(`=> Getting News from : ${weatherRes.City.country} `);
+        console.log(`${chalk.red("=>")} Weather of ${city} is loaded`);
+        console.log(
+          `${chalk.red("=>")} Getting News from : ${weatherRes.City.country} `
+        );
         getNews(weatherRes.City.country).then(newsRes => {
-          console.log(`=> Top News of ${weatherRes.City.country} is loaded`);
-          console.log(`=> Preparing Final OutPut`);
+          console.log(
+            `${chalk.red("=>")} Top News of ${
+              weatherRes.City.country
+            } is loaded`
+          );
+          console.log(`${chalk.red("=>")} Preparing Final OutPut`);
           let counter = 1;
           let i = setInterval(() => {
             console.log(`Preparing In ${counter} sec`);
             counter++;
             if (counter > 5) {
+              console.log(chalk.red("===================================="));
               showData({
                 weather: weatherRes,
                 region: weatherRes.City,
