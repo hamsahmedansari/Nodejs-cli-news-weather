@@ -116,9 +116,9 @@ const getDetails = (param = null) => {
             } is loaded`
           );
           console.log(`${chalk.red("=>")} Preparing Final OutPut`);
-          let counter = 1;
+          let counter = 0;
           let i = setInterval(() => {
-            console.log(`Preparing In ${counter} sec`);
+            console.log(`Preparing In ${5 - counter} sec`);
             counter++;
             if (counter > 5) {
               console.log(chalk.red("===================================="));
